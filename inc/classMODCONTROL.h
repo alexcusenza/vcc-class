@@ -11,24 +11,24 @@
 #include "classMODREGISTER.h"
 
 // +------------------------------------+
-// 		ModControlClass: CLASS
+// 		classMODCONTROL: CLASS
 // +------------------------------------+
 
 /*
- * ModControlClass
- * 	- Derived from ModRegisterClass
- * 	- Derived from ModBaseClass
+ * classMODCONTROL
+ * 	- Derived from classMODREGISTER
+ * 	- Derived from classMODBASE
  *
  * 	Class to setup connection modbus sockets
  */
 
-class ModControlClass: public ModRegisterClass
+class classMODCONTROL: public classMODREGISTER
 {
-	//typedef ModRegisterClass _Inherited;
+	//typedef classMODREGISTER _Inherited;
 
 public:
-	ModControlClass(int);
-	~ModControlClass();
+	classMODCONTROL(int);
+	~classMODCONTROL();
 
 	void set_IPaddress(const char *);
 	const char * get_IPaddress();

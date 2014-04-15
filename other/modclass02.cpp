@@ -136,15 +136,15 @@ c_ModbusReadMessage::c_ModbusReadMessage (int a)
 /*
  * Class Definition : Derived
  * --------------------------
- * c_ModControlClass
+ * c_classMODCONTROL
  *
  */
 
-class c_ModControlClass : public c_ModbusReadMessage
+class c_classMODCONTROL : public c_ModbusReadMessage
 {
 
 public:
-	c_ModControlClass(int);
+	c_classMODCONTROL(int);
 
 	int OpenSocket();
 	int ConnectSocket();
@@ -164,14 +164,14 @@ private:
  *
  */
 
-c_ModControlClass::c_ModControlClass (int a) : c_ModbusReadMessage(a)
+c_classMODCONTROL::c_classMODCONTROL (int a) : c_ModbusReadMessage(a)
 {
-	cout << "c_ModControlClass Created" << endl;
+	cout << "c_classMODCONTROL Created" << endl;
 	socketID = 0;
 	error = 0;
 }
 
-int c_ModControlClass::OpenSocket()
+int c_classMODCONTROL::OpenSocket()
 {
 	socketID = socket(AF_INET, SOCK_STREAM, 0); 			// Create the stream socket
 
@@ -188,7 +188,7 @@ int c_ModControlClass::OpenSocket()
 	}
 }
 
-int c_ModControlClass::ConnectSocket()
+int c_classMODCONTROL::ConnectSocket()
 {
 	error = connect(socketID, (struct sockaddr*) &s_SocketName, sizeof(s_SocketName));
 
@@ -198,14 +198,14 @@ int c_ModControlClass::ConnectSocket()
 		return (0);
 }
 
-int c_ModControlClass::ReadModbusMessage(void)
+int c_classMODCONTROL::ReadModbusMessage(void)
 {
 
 
 	return 0;
 }
 
-int c_ModControlClass::WriteModbusMessage(void)
+int c_classMODCONTROL::WriteModbusMessage(void)
 {
 
 	return 0;
@@ -223,7 +223,7 @@ int main(void)
 {
 	c_ModbusReadMessage modtest(dPlcUID);
 	c_ModbusReadMessage modtemp(dSickUID);
-	c_ModControlClass modcontrol1(2);
+	c_classMODCONTROL modcontrol1(2);
 
 	modcontrol1.set_FuncID(10);
 

@@ -50,7 +50,7 @@ int main(void)
 	/*
 	 * This class sets up the parameters and structures for the modbus function reads and writes
 	 * It is intended to pass this to a structure using get_ModReadStruct() and pass to the next
-	 * class c_ModControlClass
+	 * class c_classMODCONTROL
 	 */
 
 	// --- PLC READ / WRITE ---
@@ -58,15 +58,15 @@ int main(void)
 	 *  Instantiate the first class for modplcread, which is the modbus function 02h protocol
 	 *  modbus function 0fh write protocol
 	 */
-	ModFuncRead02hClass cPLCfuncread02h(dPlcUID, 0x1234);
+	classModFuncRead02h cPLCfuncread02h(dPlcUID, 0x1234);
 	struct ModFuncRead02hType sPLCfuncread02h;
 
 
-	ModFuncWrite0FhClass cPLCfuncwrite0fh(dPlcUID, 0x1);
+	classModFuncWrite0Fh cPLCfuncwrite0fh(dPlcUID, 0x1);
 	struct ModFuncWrite0FhType sPLCfuncwrite0fh;
 
 	// Instantiate Modbus control class
-	ModControlClass cPLCmodcontrol;
+	classMODCONTROL cPLCmodcontrol;
 
 	// Instantiate IO control class
 	c_IOControl cPLCio;
@@ -74,7 +74,7 @@ int main(void)
 
 
 	// --- SICK READ / WRITE ---
-	//ModFuncWrite10hClass c_modsick(dSickUID, 1234, 5, 5);
+	//classModFuncWrite10h c_modsick(dSickUID, 1234, 5, 5);
 	//struct s_ModFuncWrite10hType s_modsickwritefunc;
 
 
@@ -86,7 +86,7 @@ int main(void)
 	 *  function calls for.
 	 *
 	 *  These structures: sPLCfuncread02h and sPLCfuncwrite0fh will
-	 *  be passed to ModControlClass class.
+	 *  be passed to classMODCONTROL class.
 	 */
 	sPLCfuncread02h = cPLCfuncread02h.get_ModStruct(8);
 	printf ("-----Read 02h PLC Modbus Function Class-----\n");
@@ -142,7 +142,7 @@ int main(void)
 
 
 	// --- SICK READ ---
-	//c_ModControlClass modsickcontrol;
+	//c_classMODCONTROL modsickcontrol;
 
 
 

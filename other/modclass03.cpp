@@ -50,7 +50,7 @@ int main(void)
 	/*
 	 * This class sets up the parameters and structures for the modbus function reads and writes
 	 * It is intended to pass this to a structure using get_ModReadStruct() and pass to the next
-	 * class c_ModControlClass
+	 * class c_classMODCONTROL
 	 */
 
 	// --- PLC READ / WRITE ---
@@ -93,7 +93,7 @@ int main(void)
 	// -------------------------------
 
 	// --- PLC READ / WRITE ---
-	c_ModControlClass modplccontrol;
+	c_classMODCONTROL modplccontrol;
 
 	/*
 	 * setting IP Address
@@ -159,7 +159,7 @@ int main(void)
 
 
 	// --- SICK READ ---
-	//c_ModControlClass modsickcontrol;
+	//c_classMODCONTROL modsickcontrol;
 
 
 

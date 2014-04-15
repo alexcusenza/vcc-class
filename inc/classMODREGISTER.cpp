@@ -12,16 +12,16 @@
 #include "classMODREGISTER.h"
 
 // +------------------------------------+
-// 		ModRegisterClass: CLASS
+// 		classMODREGISTER: CLASS
 // +------------------------------------+
 
-//ModRegisterClass * ModRegisterClass::pthis;
+//classMODREGISTER * classMODREGISTER::pthis;
 
 // +------------------------------------+
-// 		ModRegisterClass
+// 		classMODREGISTER
 // +------------------------------------+
 
-ModRegisterClass::ModRegisterClass(int Device) : ModBaseClass()
+classMODREGISTER::classMODREGISTER(int Device) : classMODBASE()
 {
 	m_Device = Device;
 	memset(&sMODdata, 0, sizeof(sMODdata));
@@ -31,10 +31,10 @@ ModRegisterClass::ModRegisterClass(int Device) : ModBaseClass()
 }
 
 // +------------------------------------+
-// 		~ModRegisterClass
+// 		~classMODREGISTER
 // +------------------------------------+
 
-ModRegisterClass::~ModRegisterClass()
+classMODREGISTER::~classMODREGISTER()
 {
 	printf("classMODREGISTER Destroyed: %s\n", m_DevName);
 }
@@ -44,7 +44,7 @@ ModRegisterClass::~ModRegisterClass()
 // 		ConfigRegister
 // +------------------------------------+
 
-void ModRegisterClass::ConfigRegister( IONewType &iotmp)
+void classMODREGISTER::ConfigRegister( IONewType &iotmp)
 {
 	if (iotmp.eDev == m_Device)
 	{
@@ -62,7 +62,7 @@ void ModRegisterClass::ConfigRegister( IONewType &iotmp)
 // 		Write_Set
 // +------------------------------------+
 
-void ModRegisterClass::Write_Set(IONewType &tmpio)
+void classMODREGISTER::Write_Set(IONewType &tmpio)
 {
 	//printf("MESSAGE: Write Set: DevName %s\n", m_DevName);
 
@@ -81,7 +81,7 @@ void ModRegisterClass::Write_Set(IONewType &tmpio)
 // 		Write_Rst
 // +------------------------------------+
 
-void ModRegisterClass::Write_Rst(IONewType &tmpio)
+void classMODREGISTER::Write_Rst(IONewType &tmpio)
 {
 	//printf("MESSAGE: Write Rst: DevName %s\n", m_DevName);
 
@@ -100,7 +100,7 @@ void ModRegisterClass::Write_Rst(IONewType &tmpio)
 // 		ReadValue
 // +------------------------------------+
 
-int ModRegisterClass::ReadValue(IONewType &tmpio)
+int classMODREGISTER::ReadValue(IONewType &tmpio)
 {
 	//printf("ERROR: not an output\n");
 
@@ -120,7 +120,7 @@ int ModRegisterClass::ReadValue(IONewType &tmpio)
 // 		Write_Field
 // +------------------------------------+
 
-void ModRegisterClass::Write_Field(IONewType &tmpio, int tmpval)
+void classMODREGISTER::Write_Field(IONewType &tmpio, int tmpval)
 {
 	int mask, store;
 
@@ -144,7 +144,7 @@ void ModRegisterClass::Write_Field(IONewType &tmpio, int tmpval)
 // 		Read_Field
 // +------------------------------------+
 
-void ModRegisterClass::Read_Field(IONewType &tmpio, int tmpval)
+void classMODREGISTER::Read_Field(IONewType &tmpio, int tmpval)
 {
 	if (tmpio.eDir == IN)
 	{
@@ -162,7 +162,7 @@ void ModRegisterClass::Read_Field(IONewType &tmpio, int tmpval)
 // +------------------------------------+
 
 
-MODdataType ModRegisterClass::get_iomap()
+MODdataType classMODREGISTER::get_iomap()
 {
 	//return this->sMODdata;
 	return sMODdata;

@@ -7,8 +7,10 @@
 
 #ifndef CLASSHMICONTROL_H_
 #define CLASSHMICONTROL_H_
-
 #include "classMODCONTROL.h"
+
+
+#include "classMODREGISTER.h"
 
 
 // +------------------------------------+
@@ -16,20 +18,23 @@
 // +------------------------------------+
 
 
-class classHMICONTROL: public ModControlClass
+class classHMICONTROL
 {
 
 public:
 
-	classHMICONTROL(int);
+	classHMICONTROL(classMODREGISTER & tmpPort);
 	~classHMICONTROL();
 
 	void checkstate();
 	void rcvhmidata();
 	void sendhmidata();
 
+protected:
+	classMODREGISTER & m_Port;
 
 private:
+
 
 
 };

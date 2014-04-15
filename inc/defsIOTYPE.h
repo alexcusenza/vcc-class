@@ -15,37 +15,38 @@
 #define numHORNs 2
 
 
-IONewType ioaESTOP[numESTOPs] =
+IONewType ioESTOPS[] =
 {
-		PLC, OUT, 0, 0, 1,
-		PLC, OUT, 0, 1, 1,
-		PLC, OUT, 0, 2, 1,
-		PLC, OUT, 0, 3, 1
+		{	PLC, IN, 0, 0, 1	},
+		{	PLC, IN, 0, 1, 1	},
+		{	PLC, IN, 0, 2, 1	},
+		{	PLC, IN, 0, 3, 1	}
 };
+
 
 IONewType ioProtectField[numLASERs] =
 {
-		SICK0, IN, 0, 0, 1,
-		SICK0, IN, 0, 1, 1,
-		SICK0, IN, 0, 2, 1,
-		SICK1, IN, 0, 0, 1,
-		SICK1, IN, 0, 1, 1,
-		SICK1, IN, 0, 2, 1
+		{	SICK0, IN, 0, 0, 1	},
+		{	SICK0, IN, 0, 1, 1	},
+		{	SICK0, IN, 0, 2, 1	},
+		{	SICK1, IN, 0, 0, 1	},
+		{	SICK1, IN, 0, 1, 1	},
+		{	SICK1, IN, 0, 2, 1	}
 };
 
 IONewType ioWarningField[numLASERs] =
 {
-		SICK0, IN, 0, 3, 1,
-		SICK0, IN, 0, 4, 1,
-		SICK0, IN, 0, 5, 1,
-		SICK1, IN, 0, 3, 1,
-		SICK1, IN, 0, 4, 1,
-		SICK1, IN, 0, 5, 1
+		{	SICK0, IN, 0, 3, 1	},
+		{	SICK0, IN, 0, 4, 1	},
+		{	SICK0, IN, 0, 5, 1	},
+		{	SICK1, IN, 0, 3, 1	},
+		{	SICK1, IN, 0, 4, 1	},
+		{	SICK1, IN, 0, 5, 1	}
 };
 
 IONewType ioLightsAmber[2];
 
-						/* 	DEVICE 	DIR		WORD	BIT		SIZE */
+/* 	DEVICE 	DIR		WORD	BIT		SIZE */
 IONewType ioESTOP		= { PLC,	IN, 	0,		0,		1 };
 IONewType ioSTART		= { PLC,	IN,		0,		1,		1 };
 IONewType ioSTOP		= { PLC,	IN, 	0,		2,		1 };

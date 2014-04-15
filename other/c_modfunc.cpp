@@ -29,10 +29,10 @@ struct ModFuncRead02hType
  *  implementation of MODBUS ReadMessage
  */
 
-class ModFuncRead02hClass
+class classModFuncRead02h
 {
 public:
-	ModFuncRead02hClass (char a, int b)
+	classModFuncRead02h (char a, int b)
 {
 		sModbusFunc.TransID = htons(0);
 		sModbusFunc.ProtoID = htons(0);
@@ -107,10 +107,10 @@ struct ModFuncRead03hType
  *  implementation of MODBUS ReadMessage
  */
 
-class ModFuncRead03hClass
+class classModFuncRead03h
 {
 public:
-	ModFuncRead03hClass (char a, int b, int c)
+	classModFuncRead03h (char a, int b, int c)
 {
 		sModbusFunc.TransID = htons(0);
 		sModbusFunc.ProtoID = htons(0);
@@ -234,10 +234,10 @@ struct ModFuncWrite0FhType
  *  implementation of MODBUS Write 10h
  */
 
-class ModFuncWrite0FhClass
+class classModFuncWrite0Fh
 {
 public:
-	ModFuncWrite0FhClass (char a, int b)
+	classModFuncWrite0Fh (char a, int b)
 {
 		sModbusFunc.TransID = 0;
 		sModbusFunc.ProtoID = 0;

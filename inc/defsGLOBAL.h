@@ -52,7 +52,9 @@ struct IONewType
 
 struct HMIType
 {
+	const char * name;
 	eDataType eHMI;
+	bool Data;
 	int Word;
 	int Width;
 };

@@ -9,28 +9,24 @@
 #define DEFSHMITYPE_H_
 
 #include "defsGLOBAL.h"
-									/* 	Type	Word	Size */
-HMIType hmiSendMagData 				= {	tBool, 	0, 		1 };
-HMIType hmiMagCalibration			= {	tBool, 	1, 		1 };
-HMIType hmiAutoStart				= {	tBool, 	2,		1 };
-HMIType	hmiAutoStop					= {	tBool, 	3,		1 };
 
-HMIType hmiDestination[]			= {	tBool, 	4, 		1,
-										tWord, 	5, 		1 };
-
-HMIType hmiOperation[]				= {	tBool, 	6,		1,
-										tWord, 	7,		1 };
-
-HMIType	hmiIPaddress[]				= {	tBool, 	8,		1,
-										tWord,	9,		2 };
-
-HMIType hmiIPmask[]					= {	tBool,	11,		1,
-										tWord, 	12,		2 };
-
-HMIType hmiGyroCorrection[]			= {	tBool,	14,		1,
-										tWord,	15,		2 };
-
-
+HMIType hmiInputs[]= {
+		/* Name						Type		Data	Word	Size */
+		{ "SendMagData", 			tBool, 		false, 	0, 		1 },
+		{ "MagCalibration",			tBool, 		false,	1,		1 },
+		{ "AutoStart",				tBool,		false,	2,		1 },
+		{ "AutoStop", 				tBool,		false,	3,		1 },
+		{ "Destination",			tBool,		true,	4,		1 },
+		{ "Destination_data", 		tWord,		false,	5,		1 },
+		{ "Operation",				tBool,		true,	6,		1 },
+		{ "Operation_data",			tWord,		false,	7,		1 },
+		{ "IPaddress",				tBool,		true,	8,		1 },
+		{ "IPaddress_data",			tWord,		false,	9,		2 },
+		{ "IPmask",					tBool,		true,	11,		1 },
+		{ "IPmask_data",			tWord,		false,	12, 	2 },
+		{ "GyroCorrection",			tBool,		true,	14,		1 },
+		{ "GyroCorrection_data",	tWord,		false,	15,		2 }
+};
 
 
 #endif /* DEFSHMITYPE_H_ */

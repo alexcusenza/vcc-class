@@ -20,16 +20,16 @@ struct MODdataType
 
 
 // +------------------------------------+
-// 		ModRegisterClass: CLASS
+// 		classMODREGISTER: CLASS
 // +------------------------------------+
 
-class ModRegisterClass: public ModBaseClass
+class classMODREGISTER: public classMODBASE
 {
 
 public:
 
-	ModRegisterClass(int);
-	~ModRegisterClass();
+	classMODREGISTER(int);
+	~classMODREGISTER();
 
 	void ConfigRegister(IONewType &);
 	void Write_Set(IONewType &);

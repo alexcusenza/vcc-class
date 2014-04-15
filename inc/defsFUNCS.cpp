@@ -8,35 +8,35 @@
 //#include "classMODBASE.cpp"
 
 
-void fIO_writeset(IONewType &tmpIONew, ModControlClass * tmpModPass[] )
+void fIO_writeset(IONewType &tmpIONew, classMODCONTROL * tmpModPass[] )
 {
-	ModBaseClass * tmpModRegister;
+	classMODBASE * tmpModRegister;
 
 	tmpModRegister = tmpModPass[tmpIONew.eDev];
 	tmpModRegister->Write_Set(tmpIONew);
 
 }
 
-void fIO_writerst(IONewType &tmpIONew, ModControlClass * tmpModPass[] )
+void fIO_writerst(IONewType &tmpIONew, classMODCONTROL * tmpModPass[] )
 {
-	ModBaseClass * tmpModRegister;
+	classMODBASE * tmpModRegister;
 
 	tmpModRegister = tmpModPass[tmpIONew.eDev];
 	tmpModRegister->Write_Rst(tmpIONew);
 }
 
-void fIO_read(IONewType &tmpIONew, ModControlClass * tmpModPass[] )
+void fIO_read(IONewType &tmpIONew, classMODCONTROL * tmpModPass[] )
 {
-	ModBaseClass * tmpModRegister;
+	classMODBASE * tmpModRegister;
 
 	tmpModRegister = tmpModPass[tmpIONew.eDev];
 	tmpModRegister->ReadValue(tmpIONew);
 }
 
 
-void fIO_writefield(IONewType &tmpIONew, int tmpval, ModControlClass * tmpModPass[])
+void fIO_writefield(IONewType &tmpIONew, int tmpval, classMODCONTROL * tmpModPass[])
 {
-	ModBaseClass * tmpModRegister;
+	classMODBASE * tmpModRegister;
 
 	tmpModRegister = tmpModPass[tmpIONew.eDev];
 	tmpModRegister->Write_Field(tmpIONew, tmpval);

@@ -12,11 +12,11 @@
 
 
 // +--------------------------+
-// 		ModBaseClass
+// 		classMODBASE
 // +--------------------------+
 
 
-ModBaseClass::ModBaseClass()
+classMODBASE::classMODBASE()
 {
 	printf("classMODBASE Created \n");
 }

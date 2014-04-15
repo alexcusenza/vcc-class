@@ -29,8 +29,8 @@
 // +------------------------------------+
 
 
-ModControlClass::ModControlClass(int Device):
-				ModRegisterClass(Device)
+classMODCONTROL::classMODCONTROL(int Device):
+				classMODREGISTER(Device)
 {
 	mDevice = Device;
 
@@ -42,7 +42,7 @@ ModControlClass::ModControlClass(int Device):
 // 		DESTRUCTOR
 // +------------------------------------+
 
-ModControlClass::~ModControlClass()
+classMODCONTROL::~classMODCONTROL()
 {
 	printf("classMODCONTROL Destroyed: %s\n", m_DevName);
 }
@@ -52,7 +52,7 @@ ModControlClass::~ModControlClass()
 // 		set_IPaddress
 // +------------------------------------+
 
-void ModControlClass::set_IPaddress (const char * iptmp)
+void classMODCONTROL::set_IPaddress (const char * iptmp)
 {
 	m_ips = iptmp;
 }
@@ -61,7 +61,7 @@ void ModControlClass::set_IPaddress (const char * iptmp)
 // 		get_IPaddress
 // +------------------------------------+
 
-const char * ModControlClass::get_IPaddress()
+const char * classMODCONTROL::get_IPaddress()
 {
 	return (m_ips);
 }
@@ -70,7 +70,7 @@ const char * ModControlClass::get_IPaddress()
 // 		OpenSocket
 // +------------------------------------+
 
-int ModControlClass::OpenSocket()
+int classMODCONTROL::OpenSocket()
 {
 	struct sockaddr_in sSockName;
 
@@ -108,7 +108,7 @@ int ModControlClass::OpenSocket()
 // 		get_Socket
 // +------------------------------------+
 
-int ModControlClass::get_Socket()
+int classMODCONTROL::get_Socket()
 {
 	return (m_socket);
 }
@@ -117,7 +117,7 @@ int ModControlClass::get_Socket()
 // +------------------------------------+
 // 		ConnectSocket
 // +------------------------------------+
-int ModControlClass::ConnectSocket()
+int classMODCONTROL::ConnectSocket()
 {
 
 	return 0;
@@ -127,7 +127,7 @@ int ModControlClass::ConnectSocket()
 // 		setReadModbusHeader
 // +------------------------------------+
 
-void ModControlClass::setReadModbusHeader(char *message, int msgsize)
+void classMODCONTROL::setReadModbusHeader(char *message, int msgsize)
 {
 	readheadermsg = (char *)&message;
 	readheadersize = msgsize;
@@ -137,7 +137,7 @@ void ModControlClass::setReadModbusHeader(char *message, int msgsize)
 // 		setWriteModbusHeader
 // +------------------------------------+
 
-void ModControlClass::setWriteModbusHeader(char *message, int msgsize)
+void classMODCONTROL::setWriteModbusHeader(char *message, int msgsize)
 {
 	writeheadermsg = (char *)&message;
 	writeheadersize = msgsize;
@@ -147,7 +147,7 @@ void ModControlClass::setWriteModbusHeader(char *message, int msgsize)
 // 		setWriteModbusData
 // +------------------------------------+
 
-void ModControlClass::setWriteModbusData(char *message, int msgsize)
+void classMODCONTROL::setWriteModbusData(char *message, int msgsize)
 {
 	writedatamsg = (char *) get_iomap().outword;
 	writedatamsg = (char *)&message;
@@ -159,7 +159,7 @@ void ModControlClass::setWriteModbusData(char *message, int msgsize)
 // 		ReadModbusMessage
 // +------------------------------------+
 
-int ModControlClass::ReadModbusMessage()
+int classMODCONTROL::ReadModbusMessage()
 {
 	error = send(m_socket, &readheadermsg, readheadersize, 0);
 	if (error <= 0)
@@ -174,7 +174,7 @@ int ModControlClass::ReadModbusMessage()
 // 		WriteModbusMessage
 // +------------------------------------+
 
-int ModControlClass::WriteModbusMessage()
+int classMODCONTROL::WriteModbusMessage()
 {
 	error = send(m_socket, &writeheadermsg, writeheadersize, 0);
 	if (error <= 0)
@@ -198,7 +198,7 @@ int ModControlClass::WriteModbusMessage()
 // 		ReadModbusResponse
 // +------------------------------------+
 
-int ModControlClass::ReadModbusResponse()
+int classMODCONTROL::ReadModbusResponse()
 {
 	error = read(m_socket, (char*)&readbuffer, sizeof(readbuffer));
 	if (error <= 0)
@@ -209,12 +209,12 @@ int ModControlClass::ReadModbusResponse()
 	return 0;
 }
 
-//int ModControlClass::get_ReadBuffer()
+//int classMODCONTROL::get_ReadBuffer()
 //{
 //	return (this->buffer);
 //}
 
-int ModControlClass::WriteModbusReponse()
+int classMODCONTROL::WriteModbusReponse()
 {
 	error = read(m_socket, (char*)&writebuffer, sizeof(writebuffer));
 	if (error <= 0)

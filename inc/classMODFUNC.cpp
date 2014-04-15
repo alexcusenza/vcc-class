@@ -18,7 +18,7 @@
 //		ModFuncWrite02h: CLASS
 // +------------------------------------+
 
-ModFuncRead02hClass::ModFuncRead02hClass (char a, int b)
+classModFuncRead02h::classModFuncRead02h (char a, int b)
 {
 	sModbusFunc.TransID = 0;
 	sModbusFunc.ProtoID = 0;
@@ -34,22 +34,22 @@ ModFuncRead02hClass::ModFuncRead02hClass (char a, int b)
 	printf("ModFuncRead 02h created, Unit ID: %d\n", sModbusFunc.UnitID );
 }
 
-int ModFuncRead02hClass::get_MsgByteCnt()
+int classModFuncRead02h::get_MsgByteCnt()
 {
 	return (MsgByteCnt);
 }
 
-ModFuncRead02hType ModFuncRead02hClass::get_ModStruct(int x) {
+ModFuncRead02hType classModFuncRead02h::get_ModStruct(int x) {
 	set_MsgByteCnt(x);
 	return this->sModbusFunc;
 }
 
 
-void ModFuncRead02hClass::set_Address(int address) {
+void classModFuncRead02h::set_Address(int address) {
 	sModbusFunc.Address = htons(address);
 }
 
-void ModFuncRead02hClass::set_SizeBytes(int size) {
+void classModFuncRead02h::set_SizeBytes(int size) {
 	sModbusFunc.SizeBytes = htons(size);
 }
 
@@ -57,7 +57,7 @@ void ModFuncRead02hClass::set_SizeBytes(int size) {
 //	sModbusFunc.Length = TransCnt;
 //}
 
-void ModFuncRead02hClass::set_MsgByteCnt(int x)
+void classModFuncRead02h::set_MsgByteCnt(int x)
 {
 	set_SizeBytes(x);
 	//set_Length();
@@ -70,7 +70,7 @@ void ModFuncRead02hClass::set_MsgByteCnt(int x)
 // 		ModFuncRead03h: CLASS
 // +------------------------------------+
 
-ModFuncRead03hClass::ModFuncRead03hClass (char a, int b)
+classModFuncRead03h::classModFuncRead03h (char a, int b)
 {
 	sModbusFunc.TransID = 0;
 	sModbusFunc.ProtoID = 0;
@@ -87,22 +87,22 @@ ModFuncRead03hClass::ModFuncRead03hClass (char a, int b)
 }
 
 
-int ModFuncRead03hClass::get_MsgByteCnt()
+int classModFuncRead03h::get_MsgByteCnt()
 {
 	return (MsgByteCnt);
 }
 
-ModFuncRead03hType ModFuncRead03hClass::get_ModStruct(int x) {
+ModFuncRead03hType classModFuncRead03h::get_ModStruct(int x) {
 	set_MsgByteCnt(x);
 	return this->sModbusFunc;
 }
 
 
-void ModFuncRead03hClass::set_Address(int address) {
+void classModFuncRead03h::set_Address(int address) {
 	sModbusFunc.Address = htons(address);
 }
 
-void ModFuncRead03hClass::set_SizeWords(int size) {
+void classModFuncRead03h::set_SizeWords(int size) {
 	sModbusFunc.SizeWords = htons(size);
 }
 
@@ -110,7 +110,7 @@ void ModFuncRead03hClass::set_SizeWords(int size) {
 //	sModbusFunc.Length = TransCnt;
 //}
 
-void ModFuncRead03hClass::set_MsgByteCnt(int x)
+void classModFuncRead03h::set_MsgByteCnt(int x)
 {
 	if (x%2 == 0)
 		set_SizeWords(x/2);		// even
@@ -127,7 +127,7 @@ void ModFuncRead03hClass::set_MsgByteCnt(int x)
 //		ModFuncWrite0Fh: CLASS
 // +------------------------------------+
 
-ModFuncWrite0FhClass::ModFuncWrite0FhClass (char a, int b)
+classModFuncWrite0Fh::classModFuncWrite0Fh (char a, int b)
 {
 	sModbusFunc.TransID = 0;
 	sModbusFunc.ProtoID = 0;
@@ -144,34 +144,34 @@ ModFuncWrite0FhClass::ModFuncWrite0FhClass (char a, int b)
 	printf("ModFuncRead 0fh created, Unit ID: %d\n", sModbusFunc.UnitID );
 }
 
-int ModFuncWrite0FhClass::get_MsgByteCnt()
+int classModFuncWrite0Fh::get_MsgByteCnt()
 {
 	return (MsgByteCnt);
 }
 
-ModFuncWrite0FhType ModFuncWrite0FhClass::get_ModStruct(int x) {
+ModFuncWrite0FhType classModFuncWrite0Fh::get_ModStruct(int x) {
 	set_MsgByteCnt(x);
 	return this->sModbusFunc;
 }
 
 
-void ModFuncWrite0FhClass::set_Address(int address) {
+void classModFuncWrite0Fh::set_Address(int address) {
 	sModbusFunc.Address = address;
 }
 
-void ModFuncWrite0FhClass::set_SizeBits(int sizew) {
+void classModFuncWrite0Fh::set_SizeBits(int sizew) {
 	sModbusFunc.SizeBits = sizew;
 }
 
-void ModFuncWrite0FhClass::set_SizeBytes(int sizeb) {
+void classModFuncWrite0Fh::set_SizeBytes(int sizeb) {
 	sModbusFunc.SizeBytes = sizeb;
 }
 
-void ModFuncWrite0FhClass::set_Length () {
+void classModFuncWrite0Fh::set_Length () {
 	sModbusFunc.Length = TransCnt + sModbusFunc.SizeBytes;
 }
 
-void ModFuncWrite0FhClass::set_MsgByteCnt(int x)
+void classModFuncWrite0Fh::set_MsgByteCnt(int x)
 {
 	set_SizeBytes(x);
 	set_SizeBits(x*8);
@@ -185,7 +185,7 @@ void ModFuncWrite0FhClass::set_MsgByteCnt(int x)
 // 		ModFuncWrite10h: CLASS
 // +------------------------------------+
 
-ModFuncWrite10hClass::ModFuncWrite10hClass (char a, int b)
+classModFuncWrite10h::classModFuncWrite10h (char a, int b)
 {
 	sModbusFunc.TransID = 0;
 	sModbusFunc.ProtoID = 0;
@@ -204,33 +204,33 @@ ModFuncWrite10hClass::ModFuncWrite10hClass (char a, int b)
 };
 
 
-int ModFuncWrite10hClass::get_MsgByteCnt()
+int classModFuncWrite10h::get_MsgByteCnt()
 {
 	return (MsgByteCnt);
 }
 
-ModFuncWrite10hType ModFuncWrite10hClass::get_ModStruct(int x) {
+ModFuncWrite10hType classModFuncWrite10h::get_ModStruct(int x) {
 	set_MsgByteCnt(x);
 	return this->sModbusFunc;
 }
 
-void ModFuncWrite10hClass::set_Address(int address) {
+void classModFuncWrite10h::set_Address(int address) {
 	sModbusFunc.Address = address;
 }
 
-void ModFuncWrite10hClass::set_SizeWords(int sizew) {
+void classModFuncWrite10h::set_SizeWords(int sizew) {
 	sModbusFunc.SizeWords = sizew;
 }
 
-void ModFuncWrite10hClass::set_SizeBytes(int sizeb) {
+void classModFuncWrite10h::set_SizeBytes(int sizeb) {
 	sModbusFunc.SizeBytes = sizeb;
 }
 
-void ModFuncWrite10hClass::set_Length () {
+void classModFuncWrite10h::set_Length () {
 	sModbusFunc.Length = TransCnt + sModbusFunc.SizeBytes;
 }
 
-void ModFuncWrite10hClass::set_MsgByteCnt(int x)
+void classModFuncWrite10h::set_MsgByteCnt(int x)
 {
 	set_SizeBytes(x);
 

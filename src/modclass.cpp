@@ -24,6 +24,7 @@ using namespace std;
 #include "../inc/defsIOTYPE.h"
 #include "../inc/defsGLOBAL.h"
 #include "../inc/defsFUNCS.cpp"
+#include "../inc/defsHMIinputs.h"
 
 
 // ***** CONSTANTS *****
@@ -44,7 +45,6 @@ const char * ipSICK0 = "172.16.17.50";
 
 int main(void)
 {
-	// test
 	//int error, result;
 	int sizemsg, sizedata;
 
@@ -57,33 +57,41 @@ int main(void)
 	/*
 	 *
 	 */
-	ModFuncRead02hClass cPLCfuncread02h(dPLCuid, 0x1122);
+	classModFuncRead02h cPLCfuncread02h(dPLCuid, 0x1122);
 	struct ModFuncRead02hType sPLCfuncread02h;
 
-	ModFuncWrite0FhClass cPLCfuncwrite0fh(dPLCuid, 0x3344);
+	classModFuncWrite0Fh cPLCfuncwrite0fh(dPLCuid, 0x3344);
 	struct ModFuncWrite0FhType sPLCfuncwrite0fh;
 
-	//ModFuncRead03hClass cSICK0funcread03h(dSICKuid, 0x044b);
+	//classModFuncRead03h cSICK0funcread03h(dSICKuid, 0x044b);
 	//struct ModFuncRead03hType sSICK0funcread03h;
 
-	//ModFuncWrite10hClass cSICK0funcwrite10h(dSICKuid, 0x0833);
+	//classModFuncWrite10h cSICK0funcwrite10h(dSICKuid, 0x0833);
 	//struct ModFuncWrite10hType sSICK0funcwrite10h;
 
+	// +------------------------------------+
+	// 		CLASS DECLARATION
+	// +------------------------------------+
 
-	// +----- CLASS DECLARATION -----+
+	classMODCONTROL * cpMODdev[MaxDev];
+	cpMODdev[PLC] = new classMODCONTROL(PLC);
+	cpMODdev[SICK0] = new classMODCONTROL(SICK0);
 
-	ModControlClass * cpMODdev[MaxDev];
-	cpMODdev[PLC] = new ModControlClass(PLC);
-	cpMODdev[SICK0] = new ModControlClass(SICK0);
+	classMODREGISTER * cpMODhmi;
+	cpMODhmi = new classMODCONTROL(2);
 
-	//ModBaseClass * cpIOmap;				// first method
+	// first method
+	//classMODBASE * cpIOmap;
 	//cpIOmap = cpMODdev[PLC];
 	//cpIOmap->Write_Set(ioLIGHT);
 
-	//cpMODdev[ioLIGHT.eDev]->Write_Set(ioLIGHT);	// alternate method
+	// alternate method
+	//cpMODdev[ioLIGHT.eDev]->Write_Set(ioLIGHT);
 
 
-	// +-----SOCKET OPEN / CONNECTION-----+
+	// +------------------------------------+
+	// 		SOCKET OPEN / CONNECTION
+	// +------------------------------------+
 	/*
 	 * Open and Connection to Sockets
 	 */
@@ -109,12 +117,13 @@ int main(void)
 	sleep(3);
 #endif
 
-
-	// +-----READMODBUS / WRITEMODBUS MESSAGE-----+
-
+	// +------------------------------------+
+	// 		READMODBUS / WRITEMODBUS MESSAGE
+	// +------------------------------------+
 	/*
 	 * ReadModbus Message Modcontrol member function
 	 */
+
 	//sizedata = sizeof(sPLCiomap.inputword);		// this needs to be in words not bytes.
 	//sizedata = sizeof(sIOmap[PLC].inputword);
 	sPLCfuncread02h = cPLCfuncread02h.get_ModStruct(4);
@@ -156,8 +165,9 @@ int main(void)
 	//printf("> data size: %d\n", sizedata);
 
 
-
-	// +----- SELECT SETUP -----+
+	// +------------------------------------+
+	// 		SELECT SETUP
+	// +------------------------------------+
 
 #if defined(select)
 	int i ;
@@ -294,7 +304,9 @@ int main(void)
 	}
 #endif
 
-	// +----- INPUT / OUTPUT CONTROL CLASS -----+
+	// +------------------------------------+
+	// 		INPUT / OUTPUT CONTROL CLASS
+	// +------------------------------------+
 
 	printf("****** IO Output Set/Rst ******\n");
 
@@ -332,6 +344,15 @@ int main(void)
 		printf ("SICK - get_iomap: %x\n", cpMODdev[SICK0]->get_iomap().outword[0]);
 		sleep(1);
 	}
+
+
+	// +------------------------------------+
+	// 		HMI Control
+	// +------------------------------------+
+
+
+
+
 
 	delete cpMODdev[PLC];
 	delete cpMODdev[SICK0];

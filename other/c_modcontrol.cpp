@@ -13,14 +13,14 @@
 /*
  * Class Definition : Derived
  * --------------------------
- * ModControlClass
+ * classMODCONTROL
  *
  */
 
-class ModControlClass
+class classMODCONTROL
 {
 public:
-	ModControlClass();
+	classMODCONTROL();
 	void set_IPaddress(const char *);
 	const char * get_IPaddress();
 	int OpenSocket();
@@ -43,25 +43,25 @@ private:
  * Constructor Definition
  */
 
-ModControlClass::ModControlClass()
+classMODCONTROL::classMODCONTROL()
 {
-	cout << "ModControlClass Created" << endl;
+	cout << "classMODCONTROL Created" << endl;
 	socketID = 0;
 	error = 0;
 
 }
 
-void ModControlClass::set_IPaddress (const char * iptmp)
+void classMODCONTROL::set_IPaddress (const char * iptmp)
 {
 	ips = iptmp;
 }
 
-const char * ModControlClass::get_IPaddress()
+const char * classMODCONTROL::get_IPaddress()
 {
 	return (ips);
 }
 
-int ModControlClass::OpenSocket()
+int classMODCONTROL::OpenSocket()
 {
 	socketID = socket(AF_INET, SOCK_STREAM, 0); 			// Create the stream socket
 
@@ -78,7 +78,7 @@ int ModControlClass::OpenSocket()
 	}
 }
 
-int ModControlClass::ConnectSocket()
+int classMODCONTROL::ConnectSocket()
 {
 	error = connect(socketID, (struct sockaddr*) &s_SocketName, sizeof(s_SocketName));
 
@@ -88,13 +88,13 @@ int ModControlClass::ConnectSocket()
 		return (0);
 }
 
-int ModControlClass::ReadModbusMessage(char *message, int msgsize)
+int classMODCONTROL::ReadModbusMessage(char *message, int msgsize)
 {
 	error = send(socketID, &message, msgsize, 0);
 	return (1);
 }
 
-int ModControlClass::WriteModbusMessage(char *message, int msgsize, char *data, int datasize)
+int classMODCONTROL::WriteModbusMessage(char *message, int msgsize, char *data, int datasize)
 {
 	error = send(socketID, &message, msgsize, 0);
 	error = send(socketID, &data, datasize, 0);
@@ -102,7 +102,7 @@ int ModControlClass::WriteModbusMessage(char *message, int msgsize, char *data, 
 	return (1);
 }
 
-int ModControlClass::ReadModbusResponse()
+int classMODCONTROL::ReadModbusResponse()
 {
 	/*
 	 * receive and parse the incoming data
@@ -111,7 +111,7 @@ int ModControlClass::ReadModbusResponse()
 }
 
 
-int ModControlClass::WriteModbusReponse()
+int classMODCONTROL::WriteModbusReponse()
 {
 	/*
 	 * To indicate a WriteModbusMessage has completed and commence a read

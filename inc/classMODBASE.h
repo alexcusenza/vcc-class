@@ -9,14 +9,14 @@
 #define CLASSMODBASE_H_
 
 // +--------------------------+
-// 		ModBaseClass
+// 		classMODBASE
 // +--------------------------+
 
-class ModBaseClass
+class classMODBASE
 {
 public:
-	ModBaseClass();
-	~ModBaseClass() {};
+	classMODBASE();
+	~classMODBASE() {};
 	virtual void Write_Set(IONewType &) = 0;
 	virtual void Write_Rst(IONewType &) = 0;
 	virtual int ReadValue(IONewType &) = 0;

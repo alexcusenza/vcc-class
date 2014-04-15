@@ -28,11 +28,11 @@ struct ModFuncRead02hType
 // 		ModFuncRead02h: CLASS
 // +------------------------------------+
 
-class ModFuncRead02hClass
+class classModFuncRead02h
 {
 public:
 
-	ModFuncRead02hClass (char a, int b);
+	classModFuncRead02h (char a, int b);
 
 	int get_MsgByteCnt();
 
@@ -72,11 +72,11 @@ struct ModFuncRead03hType
 // 		ModFuncRead03h: CLASS
 // +------------------------------------+
 
-class ModFuncRead03hClass
+class classModFuncRead03h
 {
 public:
 
-	ModFuncRead03hClass (char a, int b);
+	classModFuncRead03h (char a, int b);
 
 	int get_MsgByteCnt();
 
@@ -117,11 +117,11 @@ struct ModFuncWrite0FhType
 //		ModFuncWrite0Fh: CLASS
 // +------------------------------------+
 
-class ModFuncWrite0FhClass
+class classModFuncWrite0Fh
 {
 public:
 
-	ModFuncWrite0FhClass (char a, int b);
+	classModFuncWrite0Fh (char a, int b);
 
 	int get_MsgByteCnt();
 
@@ -166,11 +166,11 @@ struct ModFuncWrite10hType
 // 		ModFuncWrite10h: CLASS
 // +------------------------------------+
 
-class ModFuncWrite10hClass
+class classModFuncWrite10h
 {
 public:
 
-	ModFuncWrite10hClass (char a, int b);
+	classModFuncWrite10h (char a, int b);
 
 	int get_MsgByteCnt();
 
