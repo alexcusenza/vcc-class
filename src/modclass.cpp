@@ -20,6 +20,7 @@ using namespace std;
 #include "../inc/classMODFUNC.h"
 #include "../inc/classMODCONTROL.h"
 #include "../inc/classMODREGISTER.h"
+#include "../inc/classSIGNALHMI.h"
 //#include "../inc/classMODBASE.h"
 #include "../inc/defsIOTYPE.h"
 #include "../inc/defsGLOBAL.h"
@@ -46,7 +47,8 @@ const char * ipSICK0 = "172.16.17.50";
 int main(void)
 {
 	//int error, result;
-	int sizemsg, sizedata;
+	int sizemsg;
+	//int sizedata;
 
 	printf("\n");
 	printf("******************************* \n");
@@ -77,8 +79,17 @@ int main(void)
 	cpMODdev[PLC] = new classMODCONTROL(PLC);
 	cpMODdev[SICK0] = new classMODCONTROL(SICK0);
 
-	classMODREGISTER * cpMODhmi;
+
+	classMODCONTROL * cpMODhmi;
 	cpMODhmi = new classMODCONTROL(2);
+
+	classSIGNALHMI * cpHMIsig[5];
+	cpHMIsig[0] = new classSIGNALHMI(cpMODhmi, hAutoStart);
+	cpHMIsig[1] = new classSIGNALHMI(cpMODhmi, hDestination);
+
+	cpHMIsig[0]->checkstate();
+
+
 
 	// first method
 	//classMODBASE * cpIOmap;

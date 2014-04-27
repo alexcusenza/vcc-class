@@ -9,40 +9,45 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "classHMICONTROL.h"
+#include "classSIGNALHMI.h"
 
 
 // +------------------------------------+
-// 		classHMICONTROL
+// 		classSIGNALHMI
 // +------------------------------------+
 
-classHMICONTROL::classHMICONTROL(classMODREGISTER & tmpPort):
-			m_Port(tmpPort)
+classSIGNALHMI::classSIGNALHMI(
+		classMODCONTROL * tPort,
+		HMIType & tHMI):
+		mp_Port(tPort),
+		m_HMI(tHMI)
 {
 
-	printf("classHMICONTROL Created: \n");
+	printf("classSIGNALHMI Created: \n");
+
 
 }
 
 
 // +------------------------------------+
-// 		~classHMICONTROL
+// 		~classSIGNALHMI
 // +------------------------------------+
 
-classHMICONTROL::~classHMICONTROL()
+classSIGNALHMI::~classSIGNALHMI()
 {
 
-	printf("classHMICONTROL Destroyed: \n");
+	printf("classSIGNALHMI Destroyed: \n");
 
 }
 
 
 // +------------------------------------+
-// 		classHMICONTROL
+// 		checkstate()
 // +------------------------------------+
 
-void classHMICONTROL::checkstate()
+void classSIGNALHMI::checkstate()
 {
-	//m_Port.
+	//mp_Port->sMODdata.inword[m_HMI.Word];
+	mp_Port->get_iomap();
 
 }

@@ -10,23 +10,30 @@
 
 #include "defsGLOBAL.h"
 
-HMIType hmiInputs[]= {
-		/* Name						Type		Data	Word	Size */
-		{ "SendMagData", 			tBool, 		false, 	0, 		1 },
-		{ "MagCalibration",			tBool, 		false,	1,		1 },
-		{ "AutoStart",				tBool,		false,	2,		1 },
-		{ "AutoStop", 				tBool,		false,	3,		1 },
-		{ "Destination",			tBool,		true,	4,		1 },
-		{ "Destination_data", 		tWord,		false,	5,		1 },
-		{ "Operation",				tBool,		true,	6,		1 },
-		{ "Operation_data",			tWord,		false,	7,		1 },
-		{ "IPaddress",				tBool,		true,	8,		1 },
-		{ "IPaddress_data",			tWord,		false,	9,		2 },
-		{ "IPmask",					tBool,		true,	11,		1 },
-		{ "IPmask_data",			tWord,		false,	12, 	2 },
-		{ "GyroCorrection",			tBool,		true,	14,		1 },
-		{ "GyroCorrection_data",	tWord,		false,	15,		2 }
-};
+
+/*HMIType hmiInputs[]= {
+		 Name						Type		Word	Size
+		{ "SendMagData", 			tBool, 		0, 		1 },
+		{ "MagCalibration",			tBool, 		1,		1 },
+		{ "AutoStart",				tBool,		2,		1 },
+		{ "AutoStop", 				tBool,		3,		1 },
+		{ "Destination",			tBool,		4,		1 },
+		{ "Operation",				tBool,		5,		1 },
+		{ "Route",					tBool,		6,		1 },
+		{ "IPaddress",				tBool,		7,		1 },
+		{ "IPmask",					tBool,		8,		1 },
+		{ "GyroCorrection",			tBool,		9,		1 }
+};*/
+
+HMIType hSendMagData 		= { tBool, 0,	0,	1 };
+HMIType hMagCalibration		= { tBool, 0, 	1,	1 };
+HMIType	hAutoStart			= { tBool, 0,	2,	1 };
+HMIType hAutoStop			= { tBool, 0,	3,	1 };
+HMIType hDestination		= { tBool, 0, 	4,	1 };
+HMIType hOperation			= { tBool, 0,	5,	1 };
+HMIType hRoute				= { tBool, 0,	6,	1 };
+HMIType hIPaddress			= { tBool, 0,	7,	1 };
+
 
 
 #endif /* DEFSHMITYPE_H_ */

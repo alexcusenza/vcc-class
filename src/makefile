@@ -4,7 +4,7 @@ CFLAGS = -Wall
 TARGET = modclassexe
 SRC = modclass.cpp
 
-DEPS = ../inc/classMODFUNC.h ../inc/classMODCONTROL.h  ../inc/classMODREGISTER.h ../inc/classMODBASE.h ../inc/classHMICONTROL.h
+DEPS = ../inc/classMODFUNC.h ../inc/classMODCONTROL.h  ../inc/classMODREGISTER.h ../inc/classMODBASE.h ../inc/classSIGNALHMI.h
 _OBJS = $(DEPS:.h=.o)
 OBJS = $(_OBJS) modclass.o
 

@@ -1,5 +1,5 @@
 /*
- * classHMICONTROL.H
+ * classSIGNALHMI.H
  *
  *  Created on: Apr 10, 2014
  *      Author: acusenza
@@ -7,35 +7,30 @@
 
 #ifndef CLASSHMICONTROL_H_
 #define CLASSHMICONTROL_H_
+
 #include "classMODCONTROL.h"
 
 
-#include "classMODREGISTER.h"
-
-
 // +------------------------------------+
-// 		classHMICONTROL
+// 		classSIGNALHMI
 // +------------------------------------+
 
 
-class classHMICONTROL
+class classSIGNALHMI
 {
-
 public:
-
-	classHMICONTROL(classMODREGISTER & tmpPort);
-	~classHMICONTROL();
+	classSIGNALHMI(classMODCONTROL * , HMIType &);
+	~classSIGNALHMI();
 
 	void checkstate();
 	void rcvhmidata();
 	void sendhmidata();
 
-protected:
-	classMODREGISTER & m_Port;
-
 private:
-
-
+	classMODCONTROL * mp_Port;
+	HMIType m_HMI;
+	bool m_ACK;
+	bool m_REQ;
 
 };
 

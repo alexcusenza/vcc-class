@@ -11,11 +11,6 @@
 
 #include "classMODREGISTER.h"
 
-// +------------------------------------+
-// 		classMODREGISTER: CLASS
-// +------------------------------------+
-
-//classMODREGISTER * classMODREGISTER::pthis;
 
 // +------------------------------------+
 // 		classMODREGISTER
