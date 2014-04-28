@@ -29,8 +29,7 @@ public:
 private:
 	classMODCONTROL * mp_Port;
 	HMIType m_HMI;
-	bool m_ACK;
-	bool m_REQ;
+	bool m_oneshot;
 
 };
 

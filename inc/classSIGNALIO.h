@@ -23,12 +23,12 @@ public:
 	~classSIGNALIO();
 
 	void checkstate();
-	void rcvhmidata();
-	void sendhmidata();
+	void rcviodata();
+	void sendiodata();
 
 private:
-	classMODCONTROL * mp_Port;
-	IONewType m_IO;
+	const classMODCONTROL * mp_Port;
+	const IONewType m_IO;
 	//bool m_ACK;
 	//bool m_REQ;
 

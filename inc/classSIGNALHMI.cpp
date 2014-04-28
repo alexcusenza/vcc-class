@@ -1,5 +1,5 @@
 /*
- * classHMICONTRO.cpp
+ * classSIGNALHMI.cpp
  *
  *  Created on: Apr 11, 2014
  *      Author: acusenza
@@ -20,12 +20,10 @@ classSIGNALHMI::classSIGNALHMI(
 		classMODCONTROL * tPort,
 		HMIType & tHMI):
 		mp_Port(tPort),
-		m_HMI(tHMI)
+		m_HMI(tHMI),
+		m_oneshot(false)
 {
-
 	printf("classSIGNALHMI Created: \n");
-
-
 }
 
 
@@ -35,9 +33,7 @@ classSIGNALHMI::classSIGNALHMI(
 
 classSIGNALHMI::~classSIGNALHMI()
 {
-
 	printf("classSIGNALHMI Destroyed: \n");
-
 }
 
 
@@ -47,7 +43,9 @@ classSIGNALHMI::~classSIGNALHMI()
 
 void classSIGNALHMI::checkstate()
 {
-	//mp_Port->sMODdata.inword[m_HMI.Word];
-	mp_Port->get_iomap();
+	if (mp_Port->get_iomap() && !m_oneshot)
+		m_oneshot = true;
+	else
+		m_oneshot = false;
 
 }

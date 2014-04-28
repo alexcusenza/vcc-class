@@ -5,7 +5,6 @@
  *      Author: acusenza
  */
 
-
 #include <iostream>
 #include <stdio.h>
 #include <string.h>
@@ -18,14 +17,13 @@
 // +------------------------------------+
 
 classSIGNALIO::classSIGNALIO(
-		classMODCONTROL * tPort,
-		IONewType & tHMI):
-		mp_Port(tPort),
-		m_IO(tHMI)
+		classMODCONTROL * tClassptr,
+		IONewType & tIO):
+		mp_Port(tClassptr),
+		m_IO(tIO)
 {
 
 	printf("classSIGNALIO Created: \n");
-
 
 }
 
@@ -50,6 +48,9 @@ void classSIGNALIO::checkstate()
 {
 	//mp_Port->sMODdata.inword[m_HMI.Word];
 	mp_Port->get_iomap();
+	mp_Port->ReadValue(m_IO);
 
 }
+
+
 
