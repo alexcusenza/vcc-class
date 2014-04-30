@@ -39,7 +39,7 @@ classMODREGISTER::~classMODREGISTER()
 // 		ConfigRegister
 // +------------------------------------+
 
-void classMODREGISTER::ConfigRegister( IONewType &iotmp)
+void classMODREGISTER::ConfigRegister( IODefType &iotmp)
 {
 	if (iotmp.eDev == m_Device)
 	{
@@ -57,7 +57,7 @@ void classMODREGISTER::ConfigRegister( IONewType &iotmp)
 // 		Write_Set
 // +------------------------------------+
 
-void classMODREGISTER::Write_Set(IONewType &tmpio)
+void classMODREGISTER::Write_Set(IODefType &tmpio)
 {
 	//printf("MESSAGE: Write Set: DevName %s\n", m_DevName);
 
@@ -76,7 +76,7 @@ void classMODREGISTER::Write_Set(IONewType &tmpio)
 // 		Write_Rst
 // +------------------------------------+
 
-void classMODREGISTER::Write_Rst(IONewType &tmpio)
+void classMODREGISTER::Write_Rst(IODefType &tmpio)
 {
 	//printf("MESSAGE: Write Rst: DevName %s\n", m_DevName);
 
@@ -95,7 +95,7 @@ void classMODREGISTER::Write_Rst(IONewType &tmpio)
 // 		ReadValue
 // +------------------------------------+
 
-int classMODREGISTER::ReadValue(IONewType &tmpio)
+int classMODREGISTER::ReadValue(IODefType &tmpio)
 {
 	//printf("ERROR: not an output\n");
 
@@ -115,7 +115,7 @@ int classMODREGISTER::ReadValue(IONewType &tmpio)
 // 		Write_Field
 // +------------------------------------+
 
-void classMODREGISTER::Write_Field(IONewType &tmpio, int tmpval)
+void classMODREGISTER::Write_Field(IODefType &tmpio, int tmpval)
 {
 	int mask, store;
 
@@ -139,7 +139,7 @@ void classMODREGISTER::Write_Field(IONewType &tmpio, int tmpval)
 // 		Read_Field
 // +------------------------------------+
 
-void classMODREGISTER::Read_Field(IONewType &tmpio, int tmpval)
+void classMODREGISTER::Read_Field(IODefType &tmpio, int tmpval)
 {
 	if (tmpio.eDir == IN)
 	{

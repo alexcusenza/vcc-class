@@ -13,7 +13,8 @@ enum eDevType
 	PLC,
 	SICK0,
 	SICK1,
-	MaxDev
+	MaxDev,
+	HMI
 };
 
 enum eCmdType
@@ -31,20 +32,28 @@ enum eDirType
 	OUT
 };
 
+enum eNOCType
+{
+	no,		// normal open		: 0 for open, 1 for closed
+	nc		// normal closed 	: 0 for closed, 1 for open
+};
+
 enum eDataType
 {
 	tBool,
 	tChar,
 	tByte,
 	tWord,
-	tDouble
+	tDouble,
+	tNone
 };
 
 
-struct IONewType
+struct IODefType
 {
 	eDevType eDev;
 	eDirType eDir;
+	eDataType eData;
 	int Word;
 	int Bit;
 	int Width;

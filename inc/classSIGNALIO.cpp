@@ -18,7 +18,7 @@
 
 classSIGNALIO::classSIGNALIO(
 		classMODCONTROL * tClassptr,
-		IONewType & tIO):
+		IODefType & tIO):
 		mp_Port(tClassptr),
 		m_IO(tIO)
 {
@@ -41,16 +41,40 @@ classSIGNALIO::~classSIGNALIO()
 
 
 // +------------------------------------+
-// 		checkstate()
+// 		write_set()
 // +------------------------------------+
 
-void classSIGNALIO::checkstate()
+void classSIGNALIO::write_set()
 {
-	//mp_Port->sMODdata.inword[m_HMI.Word];
-	mp_Port->get_iomap();
-	mp_Port->ReadValue(m_IO);
+	mp_Port->Write_Set(m_IO);
+}
+
+
+// +------------------------------------+
+// 		write_rst()
+// +------------------------------------+
+
+void classSIGNALIO::write_rst()
+{
+	mp_Port->Write_Rst(m_IO);
 
 }
+
+
+void classSIGNALIO::write_field(int tval)
+{
+	mp_Port->Write_Field(m_IO, tval);
+
+}
+
+// +------------------------------------+
+// 		read()
+// +------------------------------------+
+void classSIGNALIO::readvalue()
+{
+	mp_Port->ReadValue(m_IO);
+}
+
 
 
 

@@ -15,67 +15,67 @@
 #define numHORNs 2
 
 
-IONewType ioESTOPS[] =
+IODefType ioESTOPS[] =
 {
-		{ PLC, IN, 0, 0, 1	},
-		{ PLC, IN, 0, 1, 1	},
-		{ PLC, IN, 0, 2, 1	},
-		{ PLC, IN, 0, 3, 1	}
+		{ PLC, IN, tBool, 0, 0, 1 },
+		{ PLC, IN, tBool, 0, 1, 1 },
+		{ PLC, IN, tBool, 0, 2, 1 },
+		{ PLC, IN, tBool, 0, 3, 1 }
 };
 
 
-IONewType ioProtectField[numLASERs] =
+IODefType ioProtectField[numLASERs] =
 {
-		{ SICK0, IN, 0, 0, 1	},
-		{ SICK0, IN, 0, 1, 1	},
-		{ SICK0, IN, 0, 2, 1	},
-		{ SICK1, IN, 0, 0, 1	},
-		{ SICK1, IN, 0, 1, 1	},
-		{ SICK1, IN, 0, 2, 1	}
+		{ SICK0, IN, tBool, 0, 0, 1	},
+		{ SICK0, IN, tBool, 0, 1, 1	},
+		{ SICK0, IN, tBool, 0, 2, 1	},
+		{ SICK1, IN, tBool, 0, 0, 1	},
+		{ SICK1, IN, tBool, 0, 1, 1	},
+		{ SICK1, IN, tBool, 0, 2, 1	}
 };
 
-IONewType ioWarningField[numLASERs] =
+IODefType ioWarningField[numLASERs] =
 {
-		{ SICK0, IN, 0, 3, 1	},
-		{ SICK0, IN, 0, 4, 1	},
-		{ SICK0, IN, 0, 5, 1	},
-		{ SICK1, IN, 0, 3, 1	},
-		{ SICK1, IN, 0, 4, 1	},
-		{ SICK1, IN, 0, 5, 1	}
+		{ SICK0, IN, tBool, 0, 3, 1	},
+		{ SICK0, IN, tBool, 0, 4, 1	},
+		{ SICK0, IN, tBool, 0, 5, 1	},
+		{ SICK1, IN, tBool, 0, 3, 1	},
+		{ SICK1, IN, tBool, 0, 4, 1	},
+		{ SICK1, IN, tBool, 0, 5, 1	}
 };
 
-IONewType ioLightsAmber[2];
+IODefType ioLightsAmber[2];
 
-						/* 	DEVICE 	DIR		WORD	BIT		SIZE */
-IONewType ioESTOP		= { PLC,	IN, 	0,		0,		1 };
-IONewType ioSTART		= { PLC,	IN,		0,		1,		1 };
-IONewType ioSTOP		= { PLC,	IN, 	0,		2,		1 };
-IONewType ioBUMPER		= { PLC,	IN,		0,		3,		1 };
-IONewType ioOPTIC 		= { PLC, 	IN, 	0, 		4, 		1 };
+						/* 	DEV 	DIR		DATA	WORD	BIT		SIZE */
+IODefType ioESTOP		= { PLC,	IN, 	tBool, 	0,		0,		1 };
+IODefType ioSTART		= { PLC,	IN,		tBool, 	0,		1,		1 };
+IODefType ioSTOP		= { PLC,	IN, 	tBool, 	0,		2,		1 };
+IODefType ioBUMPER		= { PLC,	IN,		tBool, 	0,		3,		1 };
+IODefType ioOPTIC 		= { PLC, 	IN, 	tBool, 	0, 		4, 		1 };
 
-IONewType ioINBYTE1		= { PLC, 	IN, 	1,		0,		8 };
-IONewType ioINBYTE2		= { PLC, 	IN,		1,		8,		8 };
+IODefType ioINBYTE1		= { PLC, 	IN, 	tByte,	1,		0,		8 };
+IODefType ioINBYTE2		= { PLC, 	IN,		tByte,	1,		8,		8 };
 
-IONewType ioCRM 		= { PLC,	OUT, 	0,		0,		1 };
-IONewType ioLIGHT		= { PLC,	OUT,	0,		1,		1 };
-IONewType ioHORN		= { PLC,	OUT, 	0,		2,		1 };
-IONewType ioCHARGING	= { PLC,	OUT,	0,		3,		1 };
-IONewType ioTRAVEL 		= { PLC, 	OUT, 	0, 		4, 		1 };
+IODefType ioCRM 		= { PLC,	OUT, 	tBool, 	0,		0,		1 };
+IODefType ioLIGHT		= { PLC,	OUT,	tBool, 	0,		1,		1 };
+IODefType ioHORN		= { PLC,	OUT, 	tBool, 	0,		2,		1 };
+IODefType ioCHARGING	= { PLC,	OUT,	tBool, 	0,		3,		1 };
+IODefType ioTRAVEL 		= { PLC, 	OUT, 	tBool, 	0, 		4, 		1 };
 
-IONewType ioOUTBYTE1	= { PLC, 	OUT, 	1, 		0, 		8 };
-IONewType ioOUTBYTE2	= { PLC, 	OUT, 	1, 		8, 		8 };
+IODefType ioOUTBYTE1	= { PLC, 	OUT, 	tByte,	1, 		0, 		8 };
+IODefType ioOUTBYTE2	= { PLC, 	OUT, 	tByte,	1, 		8, 		8 };
 
-IONewType ioSICKESTOP		= { SICK0,	IN, 	0,		0,		1 };
-IONewType ioSICKSTART		= { SICK0,	IN,		0,		1,		1 };
-IONewType ioSICKSTOP		= { SICK0,	IN, 	0,		2,		1 };
-IONewType ioSICKBUMPER		= { SICK0,	IN,		0,		3,		1 };
-IONewType ioSICKOPTIC 		= { SICK0, 	IN, 	0, 		4, 		1 };
+IODefType ioSICKESTOP		= { SICK0,	IN, 	tBool, 	0,		0,		1 };
+IODefType ioSICKSTART		= { SICK0,	IN,		tBool, 	0,		1,		1 };
+IODefType ioSICKSTOP		= { SICK0,	IN, 	tBool, 	0,		2,		1 };
+IODefType ioSICKBUMPER		= { SICK0,	IN,		tBool, 	0,		3,		1 };
+IODefType ioSICKOPTIC 		= { SICK0, 	IN, 	tBool, 	0, 		4, 		1 };
 
-IONewType ioSICKCRM 		= { SICK0,	OUT, 	0,		0,		1 };
-IONewType ioSICKLIGHT		= { SICK0,	OUT,	0,		1,		1 };
-IONewType ioSICKHORN		= { SICK0,	OUT, 	0,		2,		1 };
-IONewType ioSICKCHARGING	= { SICK0,	OUT,	0,		3,		1 };
-IONewType ioSICKTRAVEL 		= { SICK0, 	OUT, 	0, 		4, 		1 };
+IODefType ioSICKCRM 		= { SICK0,	OUT, 	tBool, 	0,		0,		1 };
+IODefType ioSICKLIGHT		= { SICK0,	OUT,	tBool, 	0,		1,		1 };
+IODefType ioSICKHORN		= { SICK0,	OUT, 	tBool, 	0,		2,		1 };
+IODefType ioSICKCHARGING	= { SICK0,	OUT,	tBool, 	0,		3,		1 };
+IODefType ioSICKTRAVEL 		= { SICK0, 	OUT, 	tBool, 	0, 		4, 		1 };
 
 
 

@@ -18,7 +18,7 @@
 
 classSIGNALHMI::classSIGNALHMI(
 		classMODCONTROL * tPort,
-		HMIType & tHMI):
+		IODefType & tHMI):
 		mp_Port(tPort),
 		m_HMI(tHMI),
 		m_oneshot(false)
@@ -43,9 +43,14 @@ classSIGNALHMI::~classSIGNALHMI()
 
 void classSIGNALHMI::checkstate()
 {
-	if (mp_Port->get_iomap() && !m_oneshot)
-		m_oneshot = true;
-	else
-		m_oneshot = false;
+	if (m_HMI.eDev == HMI)
+	{
+		if (mp_Port->get_iomap().inword[m_HMI.Bit] && !m_oneshot)
+			m_oneshot = true;
+		else if (!mp_Port->get_iomap().inword[m_HMI.Bit] && m_oneshot)
+			m_oneshot = false;
 
+		mp_Port->ReadValue(m_HMI);
+
+	}
 }

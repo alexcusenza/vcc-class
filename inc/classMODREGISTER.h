@@ -31,13 +31,13 @@ public:
 	classMODREGISTER(int);
 	~classMODREGISTER();
 
-	void ConfigRegister(IONewType &);
-	void Write_Set(IONewType &);
-	void Write_Rst(IONewType &);
-	int ReadValue(IONewType &);
+	void ConfigRegister(IODefType &);
+	void Write_Set(IODefType &);
+	void Write_Rst(IODefType &);
+	int ReadValue(IODefType &);
 
-	void Write_Field(IONewType &, int);
-	void Read_Field(IONewType &, int);
+	void Write_Field(IODefType &, int);
+	void Read_Field(IODefType &, int);
 
 	int get_datain(void);
 	MODdataType get_iomap();

@@ -17,11 +17,15 @@ using namespace std;
 #include <sys/select.h>
 #include <sys/time.h>
 
+// ******* CLASSES ************
 #include "../inc/classMODFUNC.h"
 #include "../inc/classMODCONTROL.h"
 #include "../inc/classMODREGISTER.h"
 #include "../inc/classSIGNALHMI.h"
+#include "../inc/classSIGNALIO.h"
 //#include "../inc/classMODBASE.h"
+
+// ******* DEFINITIONS *********
 #include "../inc/defsIOTYPE.h"
 #include "../inc/defsGLOBAL.h"
 #include "../inc/defsFUNCS.cpp"
@@ -83,11 +87,24 @@ int main(void)
 	classMODCONTROL * cpMODhmi;
 	cpMODhmi = new classMODCONTROL(2);
 
+
 	classSIGNALHMI * cpHMIsig[5];
 	cpHMIsig[0] = new classSIGNALHMI(cpMODhmi, hAutoStart);
 	cpHMIsig[1] = new classSIGNALHMI(cpMODhmi, hDestination);
 
+
+	classSIGNALHMI * phAutoStart = new classSIGNALHMI(cpMODhmi, hAutoStart);
+	classSIGNALHMI * phDestination = new classSIGNALHMI(cpMODhmi, hDestination);
+
+	classSIGNALIO * pioESTOP = new classSIGNALIO(cpMODdev[PLC], ioESTOP);
+	classSIGNALIO * pioSTART = new classSIGNALIO(cpMODdev[PLC], ioSTART);
+
+
+
 	cpHMIsig[0]->checkstate();
+	phAutoStart->checkstate();
+	pioESTOP->readvalue();
+
 
 
 

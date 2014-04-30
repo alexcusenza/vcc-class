@@ -19,7 +19,7 @@
 class classSIGNALHMI
 {
 public:
-	classSIGNALHMI(classMODCONTROL * , HMIType &);
+	classSIGNALHMI(classMODCONTROL * , IODefType &);
 	~classSIGNALHMI();
 
 	void checkstate();
@@ -28,7 +28,7 @@ public:
 
 private:
 	classMODCONTROL * mp_Port;
-	HMIType m_HMI;
+	IODefType m_HMI;
 	bool m_oneshot;
 
 };

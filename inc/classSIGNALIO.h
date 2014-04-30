@@ -19,18 +19,17 @@
 class classSIGNALIO
 {
 public:
-	classSIGNALIO(classMODCONTROL * , IONewType &);
+	classSIGNALIO(classMODCONTROL * , IODefType &);
 	~classSIGNALIO();
 
-	void checkstate();
-	void rcviodata();
-	void sendiodata();
+	void write_set();
+	void write_rst();
+	void readvalue();
+	void write_field(int);
 
 private:
-	const classMODCONTROL * mp_Port;
-	const IONewType m_IO;
-	//bool m_ACK;
-	//bool m_REQ;
+	classMODCONTROL * mp_Port;
+	IODefType m_IO;
 
 };
 

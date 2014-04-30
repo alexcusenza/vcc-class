@@ -25,14 +25,14 @@
 		{ "GyroCorrection",			tBool,		9,		1 }
 };*/
 
-HMIType hSendMagData 		= { tBool, 0,	0,	1 };
-HMIType hMagCalibration		= { tBool, 0, 	1,	1 };
-HMIType	hAutoStart			= { tBool, 0,	2,	1 };
-HMIType hAutoStop			= { tBool, 0,	3,	1 };
-HMIType hDestination		= { tBool, 0, 	4,	1 };
-HMIType hOperation			= { tBool, 0,	5,	1 };
-HMIType hRoute				= { tBool, 0,	6,	1 };
-HMIType hIPaddress			= { tBool, 0,	7,	1 };
+IODefType hSendMagData 			= { HMI,	IN,	tBool, 0,	0,	1 };
+IODefType hMagCalibration		= { HMI,	IN,	tBool, 0, 	1,	1 };
+IODefType hAutoStart			= { HMI,	IN,	tBool, 0,	2,	1 };
+IODefType hAutoStop				= { HMI,	IN,	tBool, 0,	3,	1 };
+IODefType hDestination			= { HMI,	IN,	tBool, 0, 	4,	1 };
+IODefType hOperation			= { HMI,	IN,	tBool, 0,	5,	1 };
+IODefType hRoute				= { HMI,	IN,	tBool, 0,	6,	1 };
+IODefType hIPaddress			= { HMI,	IN,	tBool, 0,	7,	1 };
 
 
 
