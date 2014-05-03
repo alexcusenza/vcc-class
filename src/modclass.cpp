@@ -87,11 +87,9 @@ int main(void)
 	classMODCONTROL * cpMODhmi;
 	cpMODhmi = new classMODCONTROL(2);
 
-
 	classSIGNALHMI * cpHMIsig[5];
 	cpHMIsig[0] = new classSIGNALHMI(cpMODhmi, hAutoStart);
 	cpHMIsig[1] = new classSIGNALHMI(cpMODhmi, hDestination);
-
 
 	classSIGNALHMI * phAutoStart = new classSIGNALHMI(cpMODhmi, hAutoStart);
 	classSIGNALHMI * phDestination = new classSIGNALHMI(cpMODhmi, hDestination);
@@ -99,13 +97,14 @@ int main(void)
 	classSIGNALIO * pioESTOP = new classSIGNALIO(cpMODdev[PLC], ioESTOP);
 	classSIGNALIO * pioSTART = new classSIGNALIO(cpMODdev[PLC], ioSTART);
 
-
-
 	cpHMIsig[0]->checkstate();
 	phAutoStart->checkstate();
 	pioESTOP->readvalue();
 
-
+	classHOLDSTOP cHoldStop;
+	classPUSHBUTTON cPushButton;
+	cHoldStop.Destination;
+	cPushButton.Destination;
 
 
 	// first method

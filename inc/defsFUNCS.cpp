@@ -8,6 +8,21 @@
 //#include "classMODBASE.cpp"
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * OLD IO Write/Read Routines
+ */
 void fIO_writeset(IODefType &tIONew, classMODCONTROL * tModPass[] )
 {
 	classMODBASE * tModRegister;
