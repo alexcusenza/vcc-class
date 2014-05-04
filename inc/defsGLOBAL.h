@@ -48,6 +48,12 @@ enum eDataType
 	tNone
 };
 
+enum eFuncType
+{
+	Function,
+	Route
+};
+
 
 struct IODefType
 {
@@ -63,12 +69,18 @@ struct HMIType
 {
 	//const char * name;
 	eDataType eData;
-	//bool Data;
 	int Word;
 	int Bit;
 	int Width;
 };
 
+struct FuncType
+{
+	eFuncType eFunc;
+	int Word;
+	int Bit;
+	int Width;
+};
 
 
 

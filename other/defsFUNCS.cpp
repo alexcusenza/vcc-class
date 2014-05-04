@@ -29,6 +29,7 @@ void fIO_writeset(IODefType &tIONew, classMODCONTROL * tModPass[] )
 
 	tModRegister = tModPass[tIONew.eDev];
 	tModRegister->Write_Set(tIONew);
+
 }
 
 void fIO_writerst(IODefType &tIONew, classMODCONTROL * tModPass[] )

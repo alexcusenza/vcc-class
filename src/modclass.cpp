@@ -96,15 +96,15 @@ int main(void)
 
 	classSIGNALIO * pioESTOP = new classSIGNALIO(cpMODdev[PLC], ioESTOP);
 	classSIGNALIO * pioSTART = new classSIGNALIO(cpMODdev[PLC], ioSTART);
+	classSIGNALIO * pioCRM = new classSIGNALIO(cpMODdev[PLC], ioCRM);
 
 	cpHMIsig[0]->checkstate();
 	phAutoStart->checkstate();
 	pioESTOP->readvalue();
+	pioCRM->write_set();
 
-	classHOLDSTOP cHoldStop;
-	classPUSHBUTTON cPushButton;
-	cHoldStop.Destination;
-	cPushButton.Destination;
+
+
 
 
 	// first method
