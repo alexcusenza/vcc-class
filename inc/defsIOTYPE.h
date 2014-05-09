@@ -9,11 +9,19 @@
 #define DEFSIOTYPE_H_
 
 #include "defsGLOBAL.h"
+
 #define numESTOPs 4
 #define numLASERs 6
 #define	numLIGHTs 6
 #define numHORNs 2
 
+enum eIOdefs
+{
+	eioESTOP,
+	eioSTART,
+	eioCRM,
+	eioBUMPER
+};
 
 IODefType ioESTOPS[] =
 {

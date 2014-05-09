@@ -24,12 +24,13 @@ using namespace std;
 #include "../inc/classSIGNALHMI.h"
 #include "../inc/classSIGNALIO.h"
 //#include "../inc/classMODBASE.h"
+#include "../inc/classVEHMGR.h"
 
 // ******* DEFINITIONS *********
-#include "../inc/defsIOTYPE.h"
 #include "../inc/defsGLOBAL.h"
-#include "../inc/defsFUNCS.cpp"
-#include "../inc/defsHMIinputs.h"
+//#include "../inc/defsIOTYPE.h"
+//#include "../inc/defsFUNCS.cpp"
+//#include "../inc/defsHMIinputs.h"
 
 
 // ***** CONSTANTS *****
@@ -51,14 +52,17 @@ const char * ipSICK0 = "172.16.17.50";
 int main(void)
 {
 	//int error, result;
-	int sizemsg;
+	//int sizemsg;
 	//int sizedata;
 
-	printf("\n");
-	printf("******************************* \n");
-	printf("***** STARTING CLASS TEST ***** \n");
-	printf("******************************* \n");
 
+	classVEHMGR * cVMSystem;
+	cVMSystem = new classVEHMGR;
+
+	cVMSystem->PushButton();
+
+
+#if defined (all)
 	// +----MODBUS FUNCTION READ/WRITE CLASS & STRUCTURE SETUP-----+
 	/*
 	 *
@@ -79,41 +83,32 @@ int main(void)
 	// 		CLASS DECLARATION
 	// +------------------------------------+
 
-	classMODCONTROL * cpMODdev[MaxDev];
-	cpMODdev[PLC] = new classMODCONTROL(PLC);
-	cpMODdev[SICK0] = new classMODCONTROL(SICK0);
+
+//	classMODCONTROL * cpMODdev[MaxDev];
+//	cpMODdev[PLC] = new classMODCONTROL(PLC);
+//	cpMODdev[SICK0] = new classMODCONTROL(SICK0);
+//
+//	classMODCONTROL * cpMODhmi;
+//	cpMODhmi = new classMODCONTROL(2);
+//
+//
+//	classSIGNALHMI * cpHMIsig[5];
+//	cpHMIsig[0] = new classSIGNALHMI(cpMODhmi, hAutoStart);
+//	cpHMIsig[1] = new classSIGNALHMI(cpMODhmi, hDestination);
+//
+//	classSIGNALHMI * phAutoStart = new classSIGNALHMI(cpMODhmi, hAutoStart);
+//	classSIGNALHMI * phDestination = new classSIGNALHMI(cpMODhmi, hDestination);
+//
+//	classSIGNALIO * pioESTOP = new classSIGNALIO(cpMODdev[PLC], ioESTOP);
+//	classSIGNALIO * pioSTART = new classSIGNALIO(cpMODdev[PLC], ioSTART);
+//	classSIGNALIO * pioCRM = new classSIGNALIO(cpMODdev[PLC], ioCRM);
 
 
-	classMODCONTROL * cpMODhmi;
-	cpMODhmi = new classMODCONTROL(2);
-
-	classSIGNALHMI * cpHMIsig[5];
-	cpHMIsig[0] = new classSIGNALHMI(cpMODhmi, hAutoStart);
-	cpHMIsig[1] = new classSIGNALHMI(cpMODhmi, hDestination);
-
-	classSIGNALHMI * phAutoStart = new classSIGNALHMI(cpMODhmi, hAutoStart);
-	classSIGNALHMI * phDestination = new classSIGNALHMI(cpMODhmi, hDestination);
-
-	classSIGNALIO * pioESTOP = new classSIGNALIO(cpMODdev[PLC], ioESTOP);
-	classSIGNALIO * pioSTART = new classSIGNALIO(cpMODdev[PLC], ioSTART);
-	classSIGNALIO * pioCRM = new classSIGNALIO(cpMODdev[PLC], ioCRM);
 
 	cpHMIsig[0]->checkstate();
 	phAutoStart->checkstate();
 	pioESTOP->readvalue();
 	pioCRM->write_set();
-
-
-
-
-
-	// first method
-	//classMODBASE * cpIOmap;
-	//cpIOmap = cpMODdev[PLC];
-	//cpIOmap->Write_Set(ioLIGHT);
-
-	// alternate method
-	//cpMODdev[ioLIGHT.eDev]->Write_Set(ioLIGHT);
 
 
 	// +------------------------------------+
@@ -327,7 +322,6 @@ int main(void)
 
 			}
 		}
-
 	}
 #endif
 
@@ -377,11 +371,8 @@ int main(void)
 	// 		HMI Control
 	// +------------------------------------+
 
-
-
-
-
 	delete cpMODdev[PLC];
 	delete cpMODdev[SICK0];
+#endif
 
 }
