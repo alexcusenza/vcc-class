@@ -41,10 +41,14 @@ private:
 	classMODCONTROL * cpMODdev[MaxDev];
 	classMODCONTROL * cpMODhmi;
 	//classSIGNALHMI * cpHMIsig[5];
-	classSIGNALHMI * phAutoStart;
-	classSIGNALHMI * phDestination;
+
 	classSIGNALIO * pioESTOP;
 	classSIGNALIO * pioSTART;
+	classSIGNALIO * pioSICKBUMPER;
+
+	classSIGNALHMI * phAutoStart;
+	classSIGNALHMI * phDestination;
+
 
 	int vmDestination;
 	int vmLocation;
