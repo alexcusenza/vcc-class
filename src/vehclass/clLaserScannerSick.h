@@ -35,6 +35,7 @@ public:
     virtual ~clLaserScannerSick();
 
     void setcase();
+    void getcase();
 
 private:
     VehConfigType Config;

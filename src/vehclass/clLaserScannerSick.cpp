@@ -24,5 +24,10 @@ void clLaserScannerSick::setcase()
     m_index = m_clTravel->getIndex();
     caseselect.CaseInput = Config.CaseTable[m_index].CPUDeviceCase[m_CPUDevice];
 
+}
+
+void clLaserScannerSick::getcase()
+{
+
 
 }
