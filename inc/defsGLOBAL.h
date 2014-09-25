@@ -38,6 +38,12 @@ enum eNOCType
 	nc		// normal closed 	: 0 for closed, 1 for open
 };
 
+enum eSetRstType
+{
+    SET,
+    RST
+};
+
 enum eDataType
 {
 	tBool,
@@ -82,6 +88,19 @@ struct FuncType
 	int Width;
 };
 
+struct VehConfigType
+{
+    int ThetaAngle;
+    int CaseIndexMax;
+    struct
+    {
+        int TravelCase;
+        char TravelName;
+        int Angle;
+        int Speed;
+        int CPUDeviceCase[];
+    } CaseTable[];
+};
 
 
 

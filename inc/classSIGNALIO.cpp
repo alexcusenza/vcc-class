@@ -60,6 +60,11 @@ void classSIGNALIO::write_rst()
 
 }
 
+void classSIGNALIO::writevalue(eSetRstType eSR)
+{
+    mp_Port->WriteValue(m_IO, eSR);
+}
+
 
 void classSIGNALIO::write_field(int tval)
 {

@@ -9,7 +9,7 @@
 
 clTravelCase::clTravelCase()
 {
-    m_CPUDevice++;
+
 
 }
 

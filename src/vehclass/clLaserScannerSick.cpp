@@ -7,10 +7,11 @@
 
 #include "clLaserScannerSick.h"
 
-clLaserScannerSick::clLaserScannerSick()
+clLaserScannerSick::clLaserScannerSick(
+    clTravelCase * tptr):
+    m_clTravel(tptr)
 {
-    // TODO Auto-generated constructor stub
-
+    m_CPUDevice++;
 }
 
 clLaserScannerSick::~clLaserScannerSick()
@@ -20,6 +21,8 @@ clLaserScannerSick::~clLaserScannerSick()
 
 void clLaserScannerSick::setcase()
 {
-    caseselect.sCaseInput.InputA;
-    caseselect.CaseInput;
+    m_index = m_clTravel->getIndex();
+    caseselect.CaseInput = Config.CaseTable[m_index].CPUDeviceCase[m_CPUDevice];
+
+
 }

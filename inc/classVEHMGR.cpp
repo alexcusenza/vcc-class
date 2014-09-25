@@ -29,7 +29,6 @@ classVEHMGR::classVEHMGR()
 
 	pioESTOP = new classSIGNALIO(cpMODdev[PLC], ioESTOP);
 	pioSTART = new classSIGNALIO(cpMODdev[PLC], ioSTART);
-
 	pioSICKBUMPER = new classSIGNALIO(cpMODdev[SICK0], ioSICKBUMPER);
 
 	phAutoStart = new classSIGNALHMI(cpMODhmi, hAutoStart);

@@ -8,20 +8,6 @@
 #ifndef CLLASERSCANNER_H_
 #define CLLASERSCANNER_H_
 
-struct VehConfigType
-{
-    int ThetaAngle;
-    int CaseIndexMax;
-    struct
-    {
-        int TravelCase;
-        char TravelName;
-        int Angle;
-        int Speed;
-        int CPUDeviceCase[];
-    } CaseTable[];
-};
-
 class clTravelCase
 {
 public:
@@ -31,6 +17,10 @@ public:
     void VehicleTrajectory();
     int CaseIndex();
     void TravelCaseRoutine(VehConfigType &);
+    int getIndex()
+    {
+        return m_index;
+    }
 
 private:
     int mTravelCaseRequest;
@@ -40,7 +30,6 @@ private:
     int m_CPUCase;
     int m_index;
 
-    static int m_CPUDevice;
     VehConfigType Config;
 
 };

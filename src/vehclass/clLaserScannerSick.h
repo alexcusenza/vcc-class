@@ -7,6 +7,7 @@
 
 #ifndef CLLASERSCANNERSICK_H_
 #define CLLASERSCANNERSICK_H_
+#include "clTravelCase.h"
 
 struct CPUCaseType
 {
@@ -30,14 +31,18 @@ struct CPUCaseType
 class clLaserScannerSick
 {
 public:
-    clLaserScannerSick();
+    clLaserScannerSick(clTravelCase *);
     virtual ~clLaserScannerSick();
 
     void setcase();
 
 private:
-
+    VehConfigType Config;
+    static int m_CPUDevice;
+    clTravelCase * m_clTravel;
     CPUCaseType caseselect;
+    int m_index;
+
 
 };
 
