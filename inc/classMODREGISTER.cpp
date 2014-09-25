@@ -16,13 +16,15 @@
 // 		classMODREGISTER
 // +------------------------------------+
 
-classMODREGISTER::classMODREGISTER(int Device) : classMODBASE()
+classMODREGISTER::classMODREGISTER(
+        int Device) :
+        classMODBASE()
 {
-	m_Device = Device;
-	memset(&sMODdata, 0, sizeof(sMODdata));
+    m_Device = Device;
+    memset(&sMODdata, 0, sizeof(sMODdata));
 
-	sprintf(m_DevName,"Dev#%d",Device);
-	printf("classMODREGISTER Created: %s\n", m_DevName);
+    sprintf(m_DevName,"Dev#%d",Device);
+    printf("classMODREGISTER Created: %s\n", m_DevName);
 }
 
 // +------------------------------------+
@@ -31,7 +33,7 @@ classMODREGISTER::classMODREGISTER(int Device) : classMODBASE()
 
 classMODREGISTER::~classMODREGISTER()
 {
-	printf("classMODREGISTER Destroyed: %s\n", m_DevName);
+    printf("classMODREGISTER Destroyed: %s\n", m_DevName);
 }
 
 
@@ -41,55 +43,39 @@ classMODREGISTER::~classMODREGISTER()
 
 void classMODREGISTER::ConfigRegister( IODefType &iotmp)
 {
-	if (iotmp.eDev == m_Device)
-	{
-		printf("device is correct\n");
+    if (iotmp.eDev == m_Device)
+    {
+        printf("device is correct\n");
 
-		if (iotmp.eDir == IN)
-			printf("device is input\n");
-		else
-			printf("device is output\n");
-	}
+        if (iotmp.eDir == IN)
+            printf("device is input\n");
+        else
+            printf("device is output\n");
+    }
 }
 
 
-// +------------------------------------+
-// 		Write_Set
-// +------------------------------------+
 
-void classMODREGISTER::Write_Set(IODefType &tmpio)
+// +------------------------------------+
+//      WriteValue
+// +------------------------------------+
+void classMODREGISTER::WriteValue(IODefType & tmpio, eSetRstType eSR)
 {
-	//printf("MESSAGE: Write Set: DevName %s\n", m_DevName);
+    if (tmpio.eDir == OUT)
+    {
+        if (eSR == SET)
+        {
+            sMODdata.outword[tmpio.Word] |= (1 << tmpio.Bit);
 
-	if (tmpio.eDir == OUT)
-	{
-		sMODdata.outword[tmpio.Word] |= (1 << tmpio.Bit);
-	}
-	else
-	{
-		printf("ERROR: not an output\n");
-	}
+        }
+        else if (eSR == RST)
+        {
+            sMODdata.outword[tmpio.Word] &= ~(1 << tmpio.Bit);
+        }
+    }
+    else
+        printf("ERROR: not an output\n");
 }
-
-
-// +------------------------------------+
-// 		Write_Rst
-// +------------------------------------+
-
-void classMODREGISTER::Write_Rst(IODefType &tmpio)
-{
-	//printf("MESSAGE: Write Rst: DevName %s\n", m_DevName);
-
-	if (tmpio.eDir == OUT)
-	{
-		sMODdata.outword[tmpio.Word] &= ~(1 << tmpio.Bit);
-	}
-	else
-	{
-		printf("ERROR: not an output\n");
-	}
-}
-
 
 // +------------------------------------+
 // 		ReadValue
@@ -97,18 +83,16 @@ void classMODREGISTER::Write_Rst(IODefType &tmpio)
 
 int classMODREGISTER::ReadValue(IODefType &tmpio)
 {
-	//printf("ERROR: not an output\n");
-
-	if (tmpio.eDir == IN)
-	{
-		m_datain = sMODdata.inword[tmpio.Word] & (1 << tmpio.Bit);
-		return (m_datain);
-	}
-	else
-	{
-		m_datain = sMODdata.outword[tmpio.Word] & (1 << tmpio.Bit);
-		return (m_datain);
-	}
+    if (tmpio.eDir == IN)
+    {
+        m_datain = sMODdata.inword[tmpio.Word] & (1 << tmpio.Bit);
+        return (m_datain);
+    }
+    else
+    {
+        m_datain = sMODdata.outword[tmpio.Word] & (1 << tmpio.Bit);
+        return (m_datain);
+    }
 }
 
 // +------------------------------------+
@@ -117,20 +101,20 @@ int classMODREGISTER::ReadValue(IODefType &tmpio)
 
 void classMODREGISTER::Write_Field(IODefType &tmpio, int tmpval)
 {
-	int mask, store;
+    int mask, store;
 
-	if (tmpio.eDir == OUT)
-	{
-		store = sMODdata.outword[tmpio.Word];		// copy current register
-		mask = ( (1 << tmpio.Width) - 1);			// creates a mask of 0b1111 from 0x10000
-		store &= (~(mask << tmpio.Bit));			// shifts mask to bit and inverts
-		store |= ((tmpval & mask) << tmpio.Bit);	// aligns tmpval with mask and OR's it in
+    if (tmpio.eDir == OUT)
+    {
+        store = sMODdata.outword[tmpio.Word];		// copy current register
+        mask = ( (1 << tmpio.Width) - 1);			// creates a mask of 0b1111 from 0x10000
+        store &= (~(mask << tmpio.Bit));			// shifts mask to bit and inverts
+        store |= ((tmpval & mask) << tmpio.Bit);	// aligns tmpval with mask and OR's it in
 
-		sMODdata.outword[tmpio.Word] = store;		// copy back to output register
+        sMODdata.outword[tmpio.Word] = store;		// copy back to output register
 
-	}
-	else
-		printf("ERROR: not an output\n");
+    }
+    else
+        printf("ERROR: not an output\n");
 
 }
 
@@ -141,13 +125,13 @@ void classMODREGISTER::Write_Field(IODefType &tmpio, int tmpval)
 
 void classMODREGISTER::Read_Field(IODefType &tmpio, int tmpval)
 {
-	if (tmpio.eDir == IN)
-	{
+    if (tmpio.eDir == IN)
+    {
 
 
-	}
-	else
-		printf("ERROR: not an input\n");
+    }
+    else
+        printf("ERROR: not an input\n");
 }
 
 
@@ -159,8 +143,8 @@ void classMODREGISTER::Read_Field(IODefType &tmpio, int tmpval)
 
 MODdataType classMODREGISTER::get_iomap()
 {
-	//return this->sMODdata;
-	return sMODdata;
+    //return this->sMODdata;
+    return sMODdata;
 }
 
 

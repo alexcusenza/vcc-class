@@ -32,8 +32,9 @@ public:
 	~classMODREGISTER();
 
 	void ConfigRegister(IODefType &);
-	void Write_Set(IODefType &);
-	void Write_Rst(IODefType &);
+	//void Write_Set(IODefType &);
+	//void Write_Rst(IODefType &);
+	void WriteValue(IODefType &, eSetRstType);
 	int ReadValue(IODefType &);
 
 	void Write_Field(IODefType &, int);

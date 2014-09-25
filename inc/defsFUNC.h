@@ -10,6 +10,12 @@
 
 #include "defsGLOBAL.h"
 
+enum eFUNCdefs
+{
+
+};
+
+
 FuncType fLoadLocation 	= { Function,	0,	0,	1 };
 FuncType fImmHoldStop	= { Function,	0,	1,	1 };
 FuncType fRouteSelect	= { Function,	0,	2, 	1 };

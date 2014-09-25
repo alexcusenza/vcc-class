@@ -16,9 +16,10 @@ class classMODBASE
 {
 public:
 	classMODBASE();
-	~classMODBASE() {};
-	virtual void Write_Set(IODefType &) = 0;
-	virtual void Write_Rst(IODefType &) = 0;
+	virtual ~classMODBASE() {};
+	//virtual void Write_Set(IODefType &) = 0;
+	//virtual void Write_Rst(IODefType &) = 0;
+	virtual void WriteValue(IODefType &, eSetRstType) = 0;
 	virtual int ReadValue(IODefType &) = 0;
 
 	virtual void Write_Field(IODefType &, int) = 0;
