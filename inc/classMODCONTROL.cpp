@@ -130,7 +130,7 @@ int classMODCONTROL::ConnectSocket()
 
 void classMODCONTROL::setReadModbusHeader(char *message, int msgsize)
 {
-    readheadermsg = (char *)&message;
+    readheadermsg = (char *) &message;
     readheadersize = msgsize;
 }
 
@@ -140,7 +140,7 @@ void classMODCONTROL::setReadModbusHeader(char *message, int msgsize)
 
 void classMODCONTROL::setWriteModbusHeader(char *message, int msgsize)
 {
-    writeheadermsg = (char *)&message;
+    writeheadermsg = (char *) &message;
     writeheadersize = msgsize;
 }
 
@@ -151,8 +151,8 @@ void classMODCONTROL::setWriteModbusHeader(char *message, int msgsize)
 void classMODCONTROL::setWriteModbusData(char *message, int msgsize)
 {
     writedatamsg = (char *) get_iomap().outword;
-    writedatamsg = (char *)&message;
-    writedatasize = sizeof (get_iomap().outword);
+    writedatamsg = (char *) &message;
+    writedatasize = sizeof(get_iomap().outword);
     writedatasize = msgsize;
 }
 

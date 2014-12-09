@@ -25,6 +25,7 @@ public:
 	void write_set();
 	void write_rst();
 	void readvalue();
+	void writevalue(eSetRstType);
 	void write_field(int);
 
 private:

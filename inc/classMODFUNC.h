@@ -31,19 +31,13 @@ struct ModFuncRead02hType
 class classModFuncRead02h
 {
 public:
-
 	classModFuncRead02h (char a, int b);
-
 	int get_MsgByteCnt();
-
 	ModFuncRead02hType get_ModStruct(int x) ;
 
 private:
-
 	void set_Address(int address) ;
-
 	void set_SizeBytes(int size) ;
-
 	void set_MsgByteCnt(int x);
 
 	struct ModFuncRead02hType sModbusFunc;
@@ -75,19 +69,13 @@ struct ModFuncRead03hType
 class classModFuncRead03h
 {
 public:
-
 	classModFuncRead03h (char a, int b);
-
 	int get_MsgByteCnt();
-
 	ModFuncRead03hType get_ModStruct(int x) ;
 
 private:
-
 	void set_Address(int address) ;
-
 	void set_SizeWords(int size) ;
-
 	void set_MsgByteCnt(int x);
 
 	struct ModFuncRead03hType sModbusFunc;
@@ -120,23 +108,15 @@ struct ModFuncWrite0FhType
 class classModFuncWrite0Fh
 {
 public:
-
 	classModFuncWrite0Fh (char a, int b);
-
 	int get_MsgByteCnt();
-
 	ModFuncWrite0FhType get_ModStruct(int x) ;
 
 private:
-
 	void set_Address(int address) ;
-
 	void set_SizeBits(int sizew);
-
 	void set_SizeBytes(int sizeb) ;
-
 	void set_Length () ;
-
 	void set_MsgByteCnt(int x);
 
 	struct ModFuncWrite0FhType sModbusFunc;
@@ -169,23 +149,15 @@ struct ModFuncWrite10hType
 class classModFuncWrite10h
 {
 public:
-
 	classModFuncWrite10h (char a, int b);
-
 	int get_MsgByteCnt();
-
 	ModFuncWrite10hType get_ModStruct(int x);
 
 private:
-
 	void set_Address(int address) ;
-
 	void set_SizeWords(int sizew) ;
-
 	void set_SizeBytes(int sizeb) ;
-
 	void set_Length () ;
-
 	void set_MsgByteCnt(int x);
 
 	struct ModFuncWrite10hType sModbusFunc;

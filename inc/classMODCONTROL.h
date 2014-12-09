@@ -24,7 +24,6 @@
 
 class classMODCONTROL: public classMODREGISTER
 {
-	//typedef classMODREGISTER _Inherited;
 
 public:
 	classMODCONTROL(int);

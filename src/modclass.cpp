@@ -155,7 +155,7 @@ int main(void)
 	//sizedata = sizeof(sIOmap[PLC].inputword);
 	sPLCfuncread02h = cPLCfuncread02h.get_ModStruct(4);
 	sizemsg = cPLCfuncread02h.get_MsgByteCnt();
-	//cpMODdev[PLC]->setReadModbusHeader((char*)&sPLCfuncread02h, sizedata);
+	cpMODdev[PLC]->setReadModbusHeader((char*) &sPLCfuncread02h, sizemsg);
 	printf("****** READ MODBUS MESSAGE ******\n");
 	printf("> function message size: %d\n", sizemsg);
 
@@ -184,7 +184,8 @@ int main(void)
 	//sizedata = sizeof(sIOmap[PLC].outputword);
 	sPLCfuncwrite0fh = cPLCfuncwrite0fh.get_ModStruct(4);
 	sizemsg = cPLCfuncwrite0fh.get_MsgByteCnt();
-	//cpMODdev[PLC]->setWriteModbusHeader((char*)&sPLCfuncwrite0fh, sizemsg);
+	cpMODdev[PLC]->setWriteModbusHeader((char *) &sPLCfuncwrite0fh, sizemsg);
+	cpMODdev[PLC]->setWriteModbusData((char *) &data, sizedata);
 
 	printf("****** WRITE MODBUS MESSAGE ******\n");
 	printf("> function message size: %d\n", sizemsg);
